@@ -1,0 +1,231 @@
+body {
+    padding: 3%;
+    padding-top:0;
+    background-color: #f3c8d2;
+    color: white; 
+}
+.museum-art{
+    margin: 0 auto;
+}
+
+.info-div {
+	padding: 5px;
+    color:black;
+	font-family: 'Nunito', sans-serif;
+
+}
+/*
+#cm-bdy {
+	background-image: url("cm-scene.png");
+	opacity: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;   
+  
+  }*/
+  
+  img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+/*
+Top Buttons
+*/
+.top-button-wrapper{
+    text-align: center;
+}
+#headerTabs{
+   margin-bottom:30px;
+}
+
+
+/*
+Bottom Buttons
+*/
+#nextArtButtonWrapper{
+    text-align: center;
+}
+#favoriteArtButton{
+    background-color:inherit;
+    padding:inherit;
+    border:none;
+    font-size: 24pt;
+}
+#moreInfoButtonWrapper{
+    text-align: center;
+}
+
+
+/*
+Current Art Row
+*/
+#currentArt{
+    margin:0 auto;
+}
+
+#artContainerRow{
+    margin-bottom: 30px;
+}
+
+.material-icons{
+    vertical-align: bottom;
+}
+
+/*
+General Button Things
+*/
+button{
+	color: white;
+    background-color: rgba(228, 154, 171);
+    padding:5px 10px;
+    border-radius: 20px;
+    border-style:none;
+}
+
+button:active {
+outline: none;
+border: none;
+}
+
+button:focus {outline:0;}
+
+
+button:hover{
+    background-color: rgba(228, 154, 171, 0.5);
+    cursor: pointer;
+}
+
+#curatorMuseumLink > img{
+    position: fixed;
+    bottom:20px;
+    right:20px;
+    color:white;
+    
+}
+
+/*
+Animations
+*/
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+}
+
+.rotate:hover {
+	box-shadow:
+                1px 1px #black,
+                2px 2px #black,
+                3px 3px #black;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+}
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.swing:hover {
+	
+	    -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+	
+}
+
+#bdy, #currentArt {
+	-webkit-transition: background-color 2s ease-out;
+	-moz-transition: background-color 2s ease-out;
+	-o-transition: background-color 2s ease-out;
+	transition: background-color 2s ease-out;
+}
+
+#hiddenInfoDiv {
+	text-align: center;
+	opacity: 0;
+	transition:1s;
+}
+
+
+#curatorMuseumLink:hover{
+    color:gray;
+}
+
+#hiddenInfoDivContainer{
+    margin-top:30px;
+}
+

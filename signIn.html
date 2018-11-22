@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>My Museum</title>
+       <!--jQuery-->
+       <script
+       src="https://code.jquery.com/jquery-3.3.1.js"
+       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+       crossorigin="anonymous"></script>
+
+         <!--Boostrap JS--><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <!--Bootstrap and Google Material Icons CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        
+        <!--App CSS & Javascript-->
+        <link rel="stylesheet" href="style.css">
+        <script src="app.js"></script>
+    </head>
+	
+    <body id="bdy">
+       <div class="container">
+        
+		<img id="si-title" alt="si-title" height="50%" width="50%" src="sign-in.png"><br>
+
+
+        
+        <!--Sign in form-->    
+        <div id="artContainerRow" class="row">
+            <div id="signInFormContainer" class="col-12">
+                    <form>
+                        username:<br>
+                        <input class="sign-in-text-field" type="text" name="username" value="username">
+                        <br>
+                        password:<br>
+                        <input class="sign-in-text-field"type="password" name="password" value="password">
+                        <br><br>
+                      </form> 
+                      <button onclick="tempLogIn()" type="submit" value="sign-in">sign in</button>
+            </div>
+        </div>
+        
+		<a id="curatorMuseumLink" href="curatorMuseum.html">
+			<img class="zoom" alt="cm-bubble" height="14%" width="7%" src="cm-bubble.png">	   
+		</a> 
+		
+	</body>
+</html>

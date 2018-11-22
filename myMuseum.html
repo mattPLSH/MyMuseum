@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Curator Museum</title>
+
+        <!--jQuery-->
+        <script
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+              crossorigin="anonymous"></script>
+
+        <!--Boostrap JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <!--Bootstrap and Google Material Icons CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		
+		<!--font-->
+		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!--App CSS & Javascript-->
+        <link rel="stylesheet" href="style-mm.css">
+        <script src="app.js"></script>
+    </head>
+    <body onload="tempMuseum()"> 
+
+       <div class="container">
+        
+		<img id="mm-title" alt="mm-title" height="50%" width="50%" src="mm-title.png"><br>
+
+        <!--Tabs at the top-->
+        <div id="headerTabs" class="row">
+			
+            <div class="offset-md-4 col-md-4 top-button-wrapper">
+                <button onclick="location.href = 'index.html';" id="findArt">find art</button>&nbsp
+                <button onclick="location.href = 'signIn.html';" id="signIn">sign in</button>
+            </div>
+        
+        </div>
+        
+        <div class="row">
+                <div id="loadingDiv" class="col-12">
+                    loading art...
+                </div>
+            </div>
+
+        <!--Images-->    
+        <div id="artContainerRow" class="row">
+
+                <!--Test Image #1-->
+                <div class="col-3">
+                    <div class="museum-art" style="background-color: gray; width: 200px; height: 200px;">
+                                <!--This is the image-->
+                    </div>
+                    <div class="info-div"></div>
+                </div>
+    
+                 <!--Test Image #2-->
+                <div class="col-3">
+                    <div  class="museum-art" style="background-color: gray; width: 200px; height: 200px;">
+                                    <!--This is the image-->
+                    </div>
+                    <div class="info-div"></div>
+                </div>
+    
+                 <!--Test Image #3-->
+                <div class="col-3">
+                    <div  class="museum-art" style="background-color: gray; width: 200px; height: 200px;">
+                                        <!--This is the image-->
+                    </div>   
+                    <div class="info-div"></div>
+                </div>
+    
+                 <!--Test Image #4-->
+                 <div class="col-3">
+                        <div  class="museum-art" style="background-color: gray; width: 200px; height: 200px;">
+                                            <!--This is the image-->
+                        </div>   
+                        <div class="info-div"></div> 
+                    </div>
+    
+    
+    
+            </div>
+        
+        
+       </div>
+	   
+	   <a id="curatorMuseumLink" href="curatorMuseum.html">
+			<img class="zoom" alt="cm-bubble" height="14%" width="7%" src="cm-bubble.png">	   
+		</a>
+		
+    </body>
+</html>
