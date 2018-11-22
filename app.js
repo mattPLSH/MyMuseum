@@ -48,7 +48,7 @@ function nextArt(){
 		}
 	heartSelected = false;
 
-	document.getElementById('fab').className = document.getElementById('fab').className.replace(/\heartAnimation\b/g, "");z
+	document.getElementById('fab').className = document.getElementById('fab').className.replace(/\heartAnimation\b/g, "");
 
 	document.getElementById('fab').innerHTML = 'favorite_border';
 
