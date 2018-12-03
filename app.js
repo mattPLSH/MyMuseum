@@ -221,3 +221,34 @@ $(document).ready(function(){
 	});
 
 });
+
+function GetArtById(artId){
+	$.post(apiUrl, { client_id: clientID, client_secret: clientSecret },
+		function(res){
+			//token goes out of scope out of this function
+			token = res["token"];
+
+
+			var artURL = "https://api.artsy.net/api/artworks/" + artId;
+
+			$.ajax({
+				url: artURL,
+				crossDomain: true,
+				headers: {"Accept": "application/vnd.artsy-v2+json", "X-Xapp-Token":token},
+				type: "GET",
+				success: function(artwork) {
+					var minArtwork = {
+						title: artwork["title"],
+						date: artwork["date"],
+						id: artwork["id"],
+						medium: artwork["medium"],
+						source: artwork["_links"]["image"]["href"]
+					};
+
+
+					//TODO return artwork data and/or dynamically build art grid
+				}
+			});
+		}
+	);
+}
