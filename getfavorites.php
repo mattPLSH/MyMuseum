@@ -12,17 +12,27 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $stmt = $conn->prepare("SELECT favoritid, artid FROM Favorites WHERE userid = (?);");
+        $stmt = $conn->prepare("SELECT * FROM Favorites WHERE userid = ?;");
         $stmt->bind_param("s", $user);
         $user = $vals["userId"];
 
         $stmt->execute();
-        $stmt->bind_result($result);
+        $stmt->bind_result($favoriteid, $userid, $artid, $imgurl, $author, $title, $date);
         $stmt->fetch();
         $stmt->close();
         $conn->close();
 
-        echo($result);
+        $result = Array(
+            "favoriteid" => $favoriteid,
+            "userid" => $userid,
+            "artid" => $artid,
+            "imgurl" => $imgurl,
+            "author" => $author,
+            "title" => $title,
+            "date" => $date
+        );
+
+        echo(json_encode($result));
     }
 
 ?>

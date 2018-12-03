@@ -5,6 +5,11 @@ body {
     color: white; 
 }
 
+#errortxt {
+    color: red;
+    padding: 1em;
+}
+
 #loadingDiv {
 	padding: 5px;
 }

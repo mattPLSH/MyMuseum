@@ -7,9 +7,59 @@ var clientID = 'bdbd863e19b5f2bd35ca',
     apiUrl = 'https://api.artsy.net/api/tokens/xapp_token',
 	token;
 
-function tempLogIn(){
+function RegisterAccount(){
+	var data = { 
+		"username": $("input[name=username]").val(),
+		"password": $("input[name=password]").val(),
+		"function": "register"
+	}
+
+	$.ajax({
+		type: "POST",
+		url: "login.php",
+		data: data,
+		dataType: "json",
+		success: function (response) {
+			$("#errortxt").html("");
+			if(response["error"] && response["message"]){
+				$("#errortxt").html(response["message"])
+			}
+			else if(response["success"]){
+				window.location = "index.html";
+			}
+		},
+		error: function (err){
+			console.log(err);
+		}
+	});
+}
+
+function LogIn(){
 	//alert("logged in.");
-	location.href = "index.html";
+	var data = { 
+		"username": $("input[name=username]").val(),
+		"password": $("input[name=password]").val(),
+		"function": "login"
+	}
+
+	$.ajax({
+		type: "POST",
+		url: "login.php",
+		data: data,
+		dataType: "json",
+		success: function (response) {
+			$("#errortxt").html("");
+			if(response["error"] && response["message"]){
+				$("#errortxt").html(response["message"])
+			}
+			else{
+				window.location = "index.html";
+			}
+		},
+		error: function (err){
+			console.log(err);
+		}
+	});
 }
 
 	//ADDTOFAVORITES has been moved to a jquery click handler at the botton
