@@ -33,7 +33,7 @@
             $stmt->close();
             $conn->close();
 
-            if(count($userid) == 1){
+            if($userid != NULL && !is_array($userid)){
                 $result = Array(
                     "userid" => $userid,
                     "usertype" => $usertype
@@ -69,7 +69,7 @@
 
             $stmt->close();
 
-            if(count($userid) >= 1){
+            if($userid != NULL){
                 $error = Array(
                     "error" => "Registration Failed",
                     "message" => "Registration Failed: username already in use."
