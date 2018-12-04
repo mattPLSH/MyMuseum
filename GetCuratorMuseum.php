@@ -1,7 +1,4 @@
 <?php
-    session_start();
-
-    //create connection
     $conn = new mysqli("127.0.0.1", "root", "", "mymuseum");
 
     // Check connection
@@ -9,7 +6,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    if(!($stmt = $conn->prepare("SELECT * FROM favorites WHERE userid = ?;"))){
+    if(!($stmt = $conn->prepare("SELECT artid, imgurl, author, title, date FROM favorites JOIN user ON favorites.userid=user.userid WHERE usertype = 0;"))){
         $error = Array(
             "error" => "Request Failed",
             "message" => "Something went wrong"
@@ -17,9 +14,6 @@
         print($error);
     }
     else{
-        $user = $_SESSION["userid"];
-        $stmt->bind_param("s", $user);
-
         if($stmt->execute()){
             $result = $stmt->get_result();
             $ret;
@@ -38,6 +32,4 @@
             );
         }
     }
-    
-
 ?>

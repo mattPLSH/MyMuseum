@@ -2,6 +2,8 @@ var colorCount = 0;
 var heartSelected = false;
 var infoCount = 1;
 
+var currentArt;
+
 var clientID = 'bdbd863e19b5f2bd35ca',
     clientSecret = '17a710c7d5f4b5e8a566e943e14db4d0',
     apiUrl = 'https://api.artsy.net/api/tokens/xapp_token',
@@ -62,6 +64,17 @@ function LogIn(){
 	});
 }
 
+function logout(){
+	$.ajax({
+		type: "GET",
+		url: "logout.php",
+		dataType: "json",
+		success: function (response) {
+			window.location = "index.html"
+		}
+	});
+}
+
 	//ADDTOFAVORITES has been moved to a jquery click handler at the botton
 
 	// infoModal
@@ -95,6 +108,66 @@ function moreInfo()
     div.style.opacity = "0";
 	}
 
+}
+
+function removeFavorite(){
+	var data = {
+		"artid": currentArt["id"],
+		"function": "remove"
+	}
+
+	$.ajax({
+		type: "POST",
+		url: "saveFavorite.php",
+		data: data,
+		dataType: "json",
+		success: function (response) {
+			if(response["error"]){
+				return false;
+			}
+			else{
+				return true;
+			}
+		},
+		error: function(error){
+			console.log(error);
+			return false;
+		}
+	})
+	return true;
+}
+
+function saveFavorite(){
+	if(currentArt){
+		var data = {
+			"artid": currentArt["id"],
+			"imgurl": currentArt["source"],
+			"title": currentArt["title"],
+			"author": currentArt["author"],
+			"date": currentArt["date"],
+			"function": "add"
+		}
+
+		$.ajax({
+			type: "POST",
+			url: "saveFavorite.php",
+			data: data,
+			dataType: "json",
+			success: function (response) {
+				if(response["error"]){
+					return false;
+				}
+				else{
+					return true;
+				}
+			},
+			error: function(error){
+				console.log(error);
+				return false;
+			}
+		});
+		return true;
+	}
 }
 
 function nextArt(){
@@ -146,7 +219,6 @@ function nextArt(){
 			type: "GET",
 			success: function(artwork) {
 
-
 				var minArtwork = {
 					title: artwork["title"],
 					date: artwork["date"],
@@ -154,6 +226,8 @@ function nextArt(){
 					medium: artwork["medium"],
 					source: artwork["_links"]["image"]["href"]
 				};
+
+				fetchArtistByArtId(minArtwork["id"]);
 
 				//console.log(artwork);
 
@@ -165,10 +239,9 @@ function nextArt(){
 					minArtwork.source = minArtwork.source.replace("{image_version}","small");
 				}
 
+				currentArt = minArtwork;
 
 				document.getElementById("currentArt").style.backgroundImage = "url('" + minArtwork.source + "')";
-
-
 
 				var moreInfoString = "Title: " + String(minArtwork.title) + "<br> Date: " + String(minArtwork.date) +
 				"<br> Medium: " + String(minArtwork.medium);
@@ -189,8 +262,48 @@ function nextArt(){
 
 }
 
-function tempMuseum(){
+function loadCuratorMuseum(){
+	$.ajax({
+		type: "GET",
+		url: "GetCuratorMuseum.php",
+		dataType: "json",
+		success: function (response) {
 
+			//TODO: SAVE THE RETURN DATA TO USE LATER
+			if(response["error"]){
+
+			}else{
+
+			}
+		},
+		error: function (error){
+			console.log(error);
+		}
+	});
+}
+
+function loadMyMuseum(){
+	$.ajax({
+		type: "GET",
+		url: "getfavorites.php",
+		dataType: "json",
+		success: function (response) {
+
+			//TODO: SAVE THE RETURN DATA TO USE LATER
+			if(response["error"]){
+
+			}else{
+
+			}
+		},
+		error: function (error){
+			console.log(error);
+		}
+	});
+	//TODO: TAKE DATA TAKEN FROM GetFavoriteArt() AND DYNAMICALLY LOAD PAGE
+
+
+	//temporary/ filler code starts here
 	//ajax call to get token from ARTSY API
 	$.post(apiUrl, { client_id: clientID, client_secret: clientSecret },
 		function(res){
@@ -258,6 +371,8 @@ function tempMuseum(){
 			 });
 
 	}
+
+	//end filler code
 	);
 }
 
@@ -277,17 +392,18 @@ $(document).ready(function(){
 	$(".heart").click(function()
 	{
 		if(!heartSelected){
-		console.log('added to favorites');
-		document.getElementById('fab').innerHTML = 'favorite';
-		$(this).addClass("heartAnimation");
-
-	} else {
-		console.log('removed from favorites');
-		document.getElementById('fab').innerHTML = 'favorite_border';
-		$(this).removeClass("heartAnimation");
-
-	}
-	heartSelected = !heartSelected;
+			if(saveFavorite()){
+				document.getElementById('fab').innerHTML = 'favorite';
+				$(this).addClass("heartAnimation");
+				heartSelected = true;
+			}
+		} else {
+			if(removeFavorite()){
+				document.getElementById('fab').innerHTML = 'favorite_border';
+				$(this).removeClass("heartAnimation");
+				heartSelected = false;
+			}
+		}
 	});
 
 	// info Modal
@@ -305,7 +421,38 @@ $(document).ready(function(){
 
 });
 
+function fetchArtistByArtId(artId){
+	$.post(apiUrl, { client_id: clientID, client_secret: clientSecret },
+		function(res){
+			//token goes out of scope out of this function
+			token = res["token"];
 
+
+			var artURL = "https://api.artsy.net/api/artists?" + artId;
+
+			var artist = "";
+
+			$.ajax({
+				url: artURL,
+				crossDomain: true,
+				headers: {"Accept": "application/vnd.artsy-v2+json", "X-Xapp-Token":token},
+				type: "GET",
+				success: function(result) {
+					result["_embedded"]["artists"].forEach(element => {
+						artist += element["name"];
+						artist += " ";
+					});
+
+					if(artist == ""){
+						artist = "null";
+					}
+					currentArt["author"] = artist;
+				}
+			});
+		
+		}
+	);
+}
 
 function GetArtById(artId){
 	$.post(apiUrl, { client_id: clientID, client_secret: clientSecret },
