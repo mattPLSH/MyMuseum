@@ -66,7 +66,7 @@ Bottom Buttons
 .museum-art .info-div {
     visibility: hidden;
     width: 275px;
-    background-color: #A4B6FB;
+    background-color: rgba(66, 88, 173, 0.5);
     color: #fff;
     text-align: center;
     border-radius: 6px;
@@ -87,7 +87,7 @@ Bottom Buttons
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #A4B6FB transparent transparent transparent;
+    border-color: rgba(164,182,251,.5) transparent transparent transparent;
 }
 
 /* Toggle this class - hide and show the popup */
