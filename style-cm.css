@@ -4,35 +4,16 @@ body {
     background-color: #f3c8d2;
     color: white; 
 }
-.museum-art{
-    margin: 0 auto;
-}
+
 
 .info-div {
-	padding: 5px;
+    padding: 5px;
     color:black;
 	font-family: 'Nunito', sans-serif;
-
+    font-size: 10pt;
 }
-/*
-#cm-bdy {
-	background-image: url("cm-scene.png");
-	opacity: 1;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	position: absolute;
-	z-index: -1;   
+
   
-  }*/
-  
-  img {
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
 /*
 Top Buttons
 */
@@ -60,12 +41,77 @@ Bottom Buttons
     text-align: center;
 }
 
+/* Pop-up */
+
+/* container */
+.museum-art {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.museum-art .info-div {
+    visibility: hidden;
+    width: 275px;
+    background-color: #A4B6FB;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 105%; /*position*/
+    left: 50%;
+    margin-left: -136px;
+}
+
+/* arrow */
+.museum-art .info-div::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #A4B6FB transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.museum-art .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
 
 /*
 Current Art Row
 */
-#currentArt{
-    margin:0 auto;
+
+
+.museum-art{
+    background-size: 175px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255,0.5); 
+    width: 275px; 
+    height: 275px;
 }
 
 #artContainerRow{
