@@ -8,7 +8,7 @@
     }
     else if(!$_SESSION["userid"]){
         $error = array(
-            "error" => "Session User Not Set",
+            "error" => "Session user Not Set",
             "messenger" => "You are not logged in. Please log in to save favorites."
         );
         echo(json_encode($error));
@@ -17,7 +17,7 @@
         $function = $_POST["function"];
         
 
-        $conn = new mysqli("127.0.0.1", "root", "", "MyMuseum");
+        $conn = new mysqli("127.0.0.1", "root", "", "mymuseum");
 
         // Check connection
         if ($conn->connect_error) {
@@ -32,7 +32,7 @@
             $title = $_POST["title"];
             $date = $_POST["date"];
 
-            if(!($stmt = $conn->prepare("INSERT INTO Favorites (userid, artid, imgurl, author, title, date) VALUES (?, ?, ?, ?, ?, ?);"))){
+            if(!($stmt = $conn->prepare("INSERT INTO favorites (userid, artid, imgurl, author, title, date) VALUES (?, ?, ?, ?, ?, ?);"))){
                 $error = Array(
                     "error" => "Request Failed",
                     "message" => "Statement failed"
@@ -63,7 +63,7 @@
             $userid = $_SESSION["userid"];
             $artid = $_POST["artid"];
 
-            if(!($stmt = $conn->prepare("DELETE FROM Favorites WHERE userid = ? AND artid = ?;"))){
+            if(!($stmt = $conn->prepare("DELETE FROM favorites WHERE userid = ? AND artid = ?;"))){
                 $error = Array(
                     "error" => "Request Failed",
                     "message" => "Statement failed"

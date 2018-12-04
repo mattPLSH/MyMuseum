@@ -2,14 +2,14 @@
     session_start();
 
     //create connection
-    $conn = new mysqli("127.0.0.1", "root", "", "MyMuseum");
+    $conn = new mysqli("127.0.0.1", "root", "", "mymuseum");
 
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    if(!($stmt = $conn->prepare("SELECT * FROM Favorites WHERE userid = ?;"))){
+    if(!($stmt = $conn->prepare("SELECT * FROM favorites WHERE userid = ?;"))){
         $error = Array(
             "error" => "Request Failed",
             "message" => "Something went wrong"

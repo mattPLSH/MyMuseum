@@ -8,14 +8,14 @@
         $function = $_POST["function"];
 
         //create connection
-        $conn = new mysqli("127.0.0.1", "root", "", "MyMuseum");
+        $conn = new mysqli("127.0.0.1", "root", "", "mymuseum");
 
         // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
         if($function == "login"){
-            if(!($stmt = $conn->prepare("SELECT userid, usertype FROM User WHERE username = ? AND password = ?;"))){
+            if(!($stmt = $conn->prepare("SELECT userid, usertype FROM user WHERE username = ? AND password = ?;"))){
                 $error = Array(
                     "error" => "Request Failed",
                     "message" => "Something went wrong"
@@ -53,7 +53,7 @@
             }
         }
         else if ($function == "register"){
-            if(!($stmt = $conn->prepare("SELECT userid, usertype FROM User WHERE username = ?;"))){
+            if(!($stmt = $conn->prepare("SELECT userid, usertype FROM user WHERE username = ?;"))){
                 $error = Array(
                     "error" => "Request Failed",
                     "message" => "Something went wrong"
@@ -78,7 +78,7 @@
             }
             else{
                 $pass = $vals["password"];
-                $stmt2 = $conn->prepare("INSERT INTO User (username, password, usertype) VALUES(?, ?, 1)");
+                $stmt2 = $conn->prepare("INSERT INTO user (username, password, usertype) VALUES(?, ?, 1)");
                 $stmt2->bind_param("ss", $user, $pass);
                 
 
