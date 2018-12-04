@@ -145,6 +145,7 @@ function saveFavorite(){
 			"title": currentArt["title"],
 			"author": currentArt["author"],
 			"date": currentArt["date"],
+			"medium": currentArt["medium"],
 			"function": "add"
 		}
 

@@ -31,8 +31,9 @@
             $author = $_POST["author"];
             $title = $_POST["title"];
             $date = $_POST["date"];
+            $medium = $_POST["medium"];
 
-            if(!($stmt = $conn->prepare("INSERT INTO favorites (userid, artid, imgurl, author, title, date) VALUES (?, ?, ?, ?, ?, ?);"))){
+            if(!($stmt = $conn->prepare("INSERT INTO favorites (userid, artid, imgurl, author, title, date, medium) VALUES (?, ?, ?, ?, ?, ?, ?);"))){
                 $error = Array(
                     "error" => "Request Failed",
                     "message" => "Statement failed"
@@ -40,7 +41,7 @@
                 echo(json_encode($error));
             }else{
 
-                $stmt->bind_param("isssss", $userid, $artid, $imgurl, $author, $title, $date);
+                $stmt->bind_param("issssss", $userid, $artid, $imgurl, $author, $title, $date, $medium);
                 if($stmt->execute()){
                     $result = array(
                         "success" => true,
