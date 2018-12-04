@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     if($_POST){
         $vals = array(
             "username" => $_POST["username"],
