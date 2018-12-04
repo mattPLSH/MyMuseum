@@ -13,6 +13,13 @@ body {
     width: 50%;
   }
 
+  .info-div {
+    padding: 5px;
+    color:black;
+	font-family: 'Nunito', sans-serif;
+    font-size: 10pt;
+}
+
 /*
 Top Buttons
 */
