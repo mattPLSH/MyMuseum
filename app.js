@@ -77,6 +77,21 @@ function logout(){
 
 	//ADDTOFAVORITES has been moved to a jquery click handler at the botton
 
+	// infoModal
+	
+/*function infoModal(){
+
+	//var span = $(this).find('span');
+	//var popup = span.id;
+    //popup.classList.toggle("show");
+
+	//var name = document.$(this).last().id;
+
+	var name = $(this).closest('span').attr(id);
+
+	var popup = document.getElementById(name);
+    popup.classList.toggle("show");
+}*/
 
 function moreInfo()
 {
@@ -130,6 +145,7 @@ function saveFavorite(){
 			"title": currentArt["title"],
 			"author": currentArt["author"],
 			"date": currentArt["date"],
+			"medium": currentArt["medium"],
 			"function": "add"
 		}
 
@@ -330,15 +346,20 @@ function loadMyMuseum(){
 							minArtwork.source = minArtwork.source.replace("{image_version}","small");
 						}
 
-
 						var divs = document.getElementsByClassName("museum-art");
 						divs[i].style.backgroundImage =  "url('" + minArtwork.source + "')";
 
 						var moreInfoString = "Title: " + String(minArtwork.title) + "<br> Date: " + String(minArtwork.date) +
-					"<br> Medium: " + String(minArtwork.medium);
+						"<br> Medium: " + String(minArtwork.medium);
 
 						var infoDivs = document.getElementsByClassName("info-div");
 						infoDivs[i].innerHTML = moreInfoString;
+						
+						/*
+						var title = String(minArtwork.title);
+						var date = String(minArtwork.date);
+						var med = String(minArtwork.medium);
+						*/
 
 					}
 
@@ -384,6 +405,19 @@ $(document).ready(function(){
 				heartSelected = false;
 			}
 		}
+	});
+
+	// info Modal
+	
+	$(".museum-art").click(function(){
+
+		console.log('clicked');
+
+		var name = $(this).children('span').attr('id');
+	
+		var popup = document.getElementById(name);
+		popup.classList.toggle("show");
+		
 	});
 
 });

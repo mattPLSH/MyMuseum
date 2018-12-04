@@ -1,12 +1,12 @@
 <?php
-    $conn = new mysqli("127.0.0.1", "root", "", "MyMuseum");
+    $conn = new mysqli("127.0.0.1", "root", "", "mymuseum");
 
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    if(!($stmt = $conn->prepare("SELECT artid, imgurl, author, title, date FROM Favorites JOIN User ON Favorites.userid=User.userid WHERE usertype = 0;"))){
+    if(!($stmt = $conn->prepare("SELECT artid, imgurl, author, title, date FROM favorites JOIN user ON favorites.userid=user.userid WHERE usertype = 0;"))){
         $error = Array(
             "error" => "Request Failed",
             "message" => "Something went wrong"

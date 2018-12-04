@@ -27,7 +27,7 @@
     <body onload="loadCuratorMuseum()">
        <div class="container">
 
-		<img alt="cm-title" height="50%" width="50%" src="cm-title.png"><br>
+		<img id="cm-title" alt="cm-title" height="50%" width="50%" src="cm-title.png"><br>
 
         <!--Tabs at the top-->
         <div id="headerTabs" class="row">
@@ -41,8 +41,8 @@
         </div>
 
         <div class="row">
-                <div id="loadingDiv" class="col-12">
-                    loading art...
+                <div id="loadingDiv" class="col-12" style="text-align: center; margin: 10px;">
+                    loading art
                 </div>
             </div>
 
@@ -51,35 +51,35 @@
 
             <!--Test Image #1-->
             <div class="col-3">
-                <div class="museum-art" style="background-color: gray; width: 200px; height: 200px;">
+                    <div  id="zoom" class="museum-art">
                             <!--This is the image-->
-                </div>
-                <div class="info-div"></div>
+                            <span id="a1" class="info-div"></span>
+                    </div>
             </div>
 
              <!--Test Image #2-->
             <div class="col-3">
-                <div  class="museum-art" style="background-color: gray; width: 200px; height: 200px;">
-                                <!--This is the image-->
-                </div>
-                <div class="info-div"></div>
+                    <div  id="zoom" class="museum-art">
+                            <!--This is the image-->
+                            <span id="a2" class="info-div"></span>
+                    </div>
             </div>
 
              <!--Test Image #3-->
             <div class="col-3">
-                <div  class="museum-art" style="background-color: gray; width: 200px; height: 200px;">
-                                    <!--This is the image-->
-                </div>
-                <div class="info-div"></div>
+                    <div  id="zoom"  class="museum-art">
+                            <!--This is the image-->
+                            <span id="a3" class="info-div"></span>
+                    </div>
             </div>
 
              <!--Test Image #4-->
              <div class="col-3">
-                    <div  class="museum-art" style="background-color: gray; width: 200px; height: 200px;">
-                                        <!--This is the image-->
+                    <div  id="zoom" class="museum-art">
+                            <!--This is the image-->
+                            <span id="a4" class="info-div"></span>
                     </div>
-                    <div class="info-div"></div>
-                </div>
+            </div>
 
 
 

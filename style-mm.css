@@ -13,6 +13,13 @@ body {
     width: 50%;
   }
 
+  .info-div {
+    padding: 5px;
+    color:black;
+	font-family: 'Nunito', sans-serif;
+    font-size: 10pt;
+}
+
 /*
 Top Buttons
 */
@@ -23,12 +30,7 @@ Top Buttons
    margin-bottom:30px;
 }
 
-.info-div{
-	padding: 5px;
-    color:black;
-	font-family: 'Nunito', sans-serif;
 
-}
 
 
 /*
@@ -47,12 +49,75 @@ Bottom Buttons
     text-align: center;
 }
 
+/* Pop-up */
+
+/* container */
+.museum-art {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.museum-art .info-div {
+    visibility: hidden;
+    width: 275px;
+    background-color: rgba(66, 88, 173, 0.5);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 105%; /*position*/
+    left: 50%;
+    margin-left: -136px;
+}
+
+/* arrow */
+.museum-art .info-div::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(164,182,251,.5) transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.museum-art .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
 
 /*
 Current Art Row
 */
-#currentArt{
-    margin:0 auto;
+.museum-art{
+    background-size: 175px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255,0.5); 
+    width: 275px; 
+    height: 275px;
 }
 
 #artContainerRow{
@@ -67,9 +132,9 @@ Current Art Row
 General Button Things
 */
 button{
-	color: white;
+	color: #F2F4FD;
     background-color: rgba(163, 181, 253);
-    padding:5px 10px;
+    padding:5px 20px 5px 20px;
     border-radius: 20px;
     border-style:none;
 }
@@ -99,14 +164,14 @@ button:hover{
 Animations
 */
 
-.zoom {
+#zoom {
     transition: transform .2s;
 }
 
-.zoom:hover {
-    -ms-transform: scale(1.05); /* IE 9 */
-    -webkit-transform: scale(1.05); /* Safari 3-8 */
-    transform: scale(1.05);
+#zoom:hover {
+    -ms-transform: scale(1.03); /* IE 9 */
+    -webkit-transform: scale(1.03); /* Safari 3-8 */
+    transform: scale(1.03);
 }
 
 .rotate:hover {
