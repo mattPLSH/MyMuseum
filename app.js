@@ -351,7 +351,7 @@ function loadMyMuseum(){
 		dataType: "json",
 		success: function (response) {
 
-      artArray = response;
+      artArray = response.reverse(); // reverse so most recently saved art is first
       console.log(response);
       var artContainer = document.getElementById('artContainerRow');
       artContainer.innerHTML = "";
