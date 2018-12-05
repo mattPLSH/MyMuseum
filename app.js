@@ -4,6 +4,10 @@ var infoCount = 1;
 
 var currentArt;
 
+//this function will determine if someone is logged in and hides either
+//log in or log out respectivly
+checkStatus();
+
 var clientID = 'bdbd863e19b5f2bd35ca',
     clientSecret = '17a710c7d5f4b5e8a566e943e14db4d0',
     apiUrl = 'https://api.artsy.net/api/tokens/xapp_token',
@@ -71,6 +75,24 @@ function logout(){
 		dataType: "json",
 		success: function (response) {
 			window.location = "index.html"
+		}
+	});
+}
+
+function checkStatus(){
+	$.ajax({
+		type: "GET",
+		url: "checkLoggedIn.php",
+		success: function(data){
+			if(data==1){
+				//user is logged in so button should be log out
+				var elem = document.getElementById('signIn');
+    			elem.parentNode.removeChild(elem);
+			}else{
+				//user is not logged in so button should be log in
+				var elem = document.getElementById('signOut');
+    			elem.parentNode.removeChild(elem);
+			}
 		}
 	});
 }
