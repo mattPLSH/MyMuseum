@@ -22,7 +22,7 @@
 
         if($stmt->execute()){
             $result = $stmt->get_result();
-            $ret;
+            $ret = Array();
             while ($data = $result->fetch_assoc())
             {
                 $ret[] = $data;
@@ -38,6 +38,6 @@
             );
         }
     }
-    
+
 
 ?>

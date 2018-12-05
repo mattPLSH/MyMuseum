@@ -321,7 +321,66 @@ function loadMyMuseum(){
 		dataType: "json",
 		success: function (response) {
 
+      artArray = response;
       console.log(response);
+      var artContainer = document.getElementById('artContainerRow');
+      for(var i = 0; i < response.length; i++)
+      {
+
+        var minArtwork = {
+          title: artArray[i]["title"],
+          date: artArray[i]["date"],
+          id: artArray[i]["artid"],
+          medium: artArray[i]["medium"],
+          source: artArray[i]["imgurl"]
+        };
+
+        //use appropriate size
+        // if(artArray[i]["image_versions"].includes("medium"))
+        // {
+        //   minArtwork.source = minArtwork.source.replace("{image_version}","medium");
+        //
+        // }else if(artArray[i]["image_versions"].includes("small")){
+        //   minArtwork.source = minArtwork.source.replace("{image_version}","small");
+        // }
+
+        artContainer.innerHTML +=   "<div class=\"col-xl-3\">'" +
+                  "<div  id=\"zoom\" class=\"museum-art\">" +
+                          "<span id=\"a" + i + "\" class=\"info-div\"></span>" +
+                  "</div>" +
+          "</div>";
+
+        var divs = document.getElementsByClassName("museum-art");
+        divs[i].style.backgroundImage =  "url('" + minArtwork.source + "')";
+
+        var moreInfoString = "Title: " + String(minArtwork.title) + "<br> Date: " + String(minArtwork.date) +
+        "<br> Medium: " + String(minArtwork.medium);
+
+        var infoDivs = document.getElementsByClassName("info-div");
+        infoDivs[i].innerHTML = moreInfoString;
+
+        /*
+        var title = String(minArtwork.title);
+        var date = String(minArtwork.date);
+        var med = String(minArtwork.medium);
+        */
+
+      }
+
+      //remove loading text
+      if (response.length != 0)
+      {
+        document.getElementById('loadingDiv').style.opacity = '0';
+      }
+      else
+      {
+        document.getElementById('loadingDiv').innerHTML = "looks like you haven't favorited any art!! favorite some art in the find art tab and then come back!!!";
+        document.getElementById('loadingDiv').style.color = "#D5A3DE";
+      }
+
+      console.log(artContainer.innerHTML);
+
+
 			//TODO: SAVE THE RETURN DATA TO USE LATER
 			if(response["error"]){
 
@@ -338,75 +397,75 @@ function loadMyMuseum(){
 
 	//temporary/ filler code starts here
 	//ajax call to get token from ARTSY API
-	$.post(apiUrl, { client_id: clientID, client_secret: clientSecret },
-		function(res){
-
-			//token goes out of scope out of this function
-			token = res["token"];
-
-
-			var artArrayURL = "https://api.artsy.net/api/artworks?size=4";
-
-			$.ajax({
-				url: artArrayURL,
-				crossDomain: true,
-				headers: {"Accept": "application/vnd.artsy-v2+json", "X-Xapp-Token":token},
-				type: "GET",
-				success: function(artwork) {
-
-
-
-					var artArray = artwork["_embedded"]["artworks"];
-					console.log(artArray);
-					for(var i = 0; i < 4; i++)
-					{
-
-						var minArtwork = {
-							title: artArray[i]["title"],
-							date: artArray[i]["date"],
-							id: artArray[i]["id"],
-							medium: artArray[i]["medium"],
-							source: artArray[i]["_links"]["image"]["href"]
-						};
-
-						//use appropriate size
-						if(artArray[i]["image_versions"].includes("medium"))
-						{
-							minArtwork.source = minArtwork.source.replace("{image_version}","medium");
-
-						}else if(artArray[i]["image_versions"].includes("small")){
-							minArtwork.source = minArtwork.source.replace("{image_version}","small");
-						}
-
-						var divs = document.getElementsByClassName("museum-art");
-						divs[i].style.backgroundImage =  "url('" + minArtwork.source + "')";
-
-						var moreInfoString = "Title: " + String(minArtwork.title) + "<br> Date: " + String(minArtwork.date) +
-						"<br> Medium: " + String(minArtwork.medium);
-
-						var infoDivs = document.getElementsByClassName("info-div");
-						infoDivs[i].innerHTML = moreInfoString;
-
-						/*
-						var title = String(minArtwork.title);
-						var date = String(minArtwork.date);
-						var med = String(minArtwork.medium);
-						*/
-
-					}
-
-					//remove loading text
-					document.getElementById('loadingDiv').style.opacity = '0';
-				},
-				failure: function(data){
-					alert("failed");
-				}
-			 });
-
-	}
-
-	//end filler code
-	);
+	// $.post(apiUrl, { client_id: clientID, client_secret: clientSecret },
+	// 	function(res){
+  //
+	// 		//token goes out of scope out of this function
+	// 		token = res["token"];
+  //
+  //
+	// 		var artArrayURL = "https://api.artsy.net/api/artworks?size=4";
+  //
+	// 		$.ajax({
+	// 			url: artArrayURL,
+	// 			crossDomain: true,
+	// 			headers: {"Accept": "application/vnd.artsy-v2+json", "X-Xapp-Token":token},
+	// 			type: "GET",
+	// 			success: function(artwork) {
+  //
+  //
+  //
+	// 				var artArray = artwork["_embedded"]["artworks"];
+	// 				console.log(artArray);
+	// 				for(var i = 0; i < 4; i++)
+	// 				{
+  //
+	// 					var minArtwork = {
+	// 						title: artArray[i]["title"],
+	// 						date: artArray[i]["date"],
+	// 						id: artArray[i]["id"],
+	// 						medium: artArray[i]["medium"],
+	// 						source: artArray[i]["_links"]["image"]["href"]
+	// 					};
+  //
+	// 					//use appropriate size
+	// 					if(artArray[i]["image_versions"].includes("medium"))
+	// 					{
+	// 						minArtwork.source = minArtwork.source.replace("{image_version}","medium");
+  //
+	// 					}else if(artArray[i]["image_versions"].includes("small")){
+	// 						minArtwork.source = minArtwork.source.replace("{image_version}","small");
+	// 					}
+  //
+	// 					var divs = document.getElementsByClassName("museum-art");
+	// 					divs[i].style.backgroundImage =  "url('" + minArtwork.source + "')";
+  //
+	// 					var moreInfoString = "Title: " + String(minArtwork.title) + "<br> Date: " + String(minArtwork.date) +
+	// 					"<br> Medium: " + String(minArtwork.medium);
+  //
+	// 					var infoDivs = document.getElementsByClassName("info-div");
+	// 					infoDivs[i].innerHTML = moreInfoString;
+  //
+	// 					/*
+	// 					var title = String(minArtwork.title);
+	// 					var date = String(minArtwork.date);
+	// 					var med = String(minArtwork.medium);
+	// 					*/
+  //
+	// 				}
+  //
+	// 				//remove loading text
+	// 				document.getElementById('loadingDiv').style.opacity = '0';
+	// 			},
+	// 			failure: function(data){
+	// 				alert("failed");
+	// 			}
+	// 		 });
+  //
+	// }
+  //
+	// //end filler code
+	// );
 }
 
 
@@ -441,7 +500,7 @@ $(document).ready(function(){
 
 	// info Modal
 
-	$(".museum-art").click(function(){
+	$(document).on("click",".museum-art",function(){
 
 		console.log('clicked');
 
