@@ -6,7 +6,6 @@ var currentArt;
 
 //this function will determine if someone is logged in and hides either
 //log in or log out respectivly
-checkStatus();
 
 var clientID = 'bdbd863e19b5f2bd35ca',
     clientSecret = '17a710c7d5f4b5e8a566e943e14db4d0',
@@ -82,39 +81,34 @@ function logout(){
 		url: "logout.php",
 		dataType: "json",
 		success: function (response) {
-			curUserType = -1;
+			sessionStorage.setItem("usertype", -1);
 			window.location = "index.html"
 		}
 	});
 }
 
 function checkStatus(){
-	$.ajax({
-		type: "GET",
-		url: "checkLoggedIn.php",
-		success: function(data){
-			if(data==1){
-				//user is logged in so button should be log out
-				var elem = document.getElementById('signIn');
+	
+	
+	if(sessionStorage.getItem("usertype") != -1)
+	{
+		var elem = document.getElementById('signIn');
         if (elem)
         {
-          console.log("signout button");
-    			elem.innerHTML = "sign out";
-          elem.onclick = function() { logout(); }
+
+    		elem.innerHTML = "sign out";
+          	elem.onclick = function() { logout(); };
         }
-			}
-      else{
+	}
+	else{
 				//user is not logged in so button should be log in
-				var elem = document.getElementById('signIn');
+		var elem = document.getElementById('signIn');
         if (elem)
         {
-          console.log("signin button");
           elem.innerHTML = "sign in";
-          elem.onclick = function() { location.href = 'signIn.html'; }
+          elem.onclick = function() { location.href = 'signIn.html'; };
         }
-			}
-		}
-	});
+	}
 }
 
 	//ADDTOFAVORITES has been moved to a jquery click handler at the botton
@@ -210,37 +204,46 @@ function removeFavorite(){
 }
 
 function saveFavorite(){
-	if(currentArt){
-		var data = {
-			"artid": currentArt["id"],
-			"imgurl": currentArt["source"],
-			"title": currentArt["title"],
-			//"author": currentArt["author"],
-			"date": currentArt["date"],
-			"medium": currentArt["medium"],
-			"function": "add"
-		}
-
-		$.ajax({
-			type: "POST",
-			url: "saveFavorite.php",
-			data: data,
-			dataType: "json",
-			success: function (response) {
-				if(response["error"]){
+	
+	if(sessionStorage.getItem("usertype") == -1)
+	{
+		location.href = 'signIn.html';
+	}
+	else{
+		if(currentArt){
+			var data = {
+				"artid": currentArt["id"],
+				"imgurl": currentArt["source"],
+				"title": currentArt["title"],
+				//"author": currentArt["author"],
+				"date": currentArt["date"],
+				"medium": currentArt["medium"],
+				"function": "add"
+			}
+	
+			$.ajax({
+				type: "POST",
+				url: "saveFavorite.php",
+				data: data,
+				dataType: "json",
+				success: function (response) {
+					if(response["error"]){
+						return false;
+					}
+					else{
+						return true;
+					}
+				},
+				error: function(error){
+					console.log(error);
 					return false;
 				}
-				else{
-					return true;
-				}
-			},
-			error: function(error){
-				console.log(error);
-				return false;
-			}
-		});
-		return true;
+			});
+			return true;
+		}
 	}
+	
+	
 }
 
 function nextArt(){
@@ -570,6 +573,8 @@ function loadMyMuseum(){
 
 
 $(document).ready(function(){
+	
+	checkStatus();
 
 	$(".heart").hover(function(){
 	$(this).text('favorite');
