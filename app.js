@@ -14,7 +14,7 @@ var clientID = 'bdbd863e19b5f2bd35ca',
 	token;
 
 function RegisterAccount(){
-	var data = { 
+	var data = {
 		"username": $("input[name=username]").val(),
 		"password": $("input[name=password]").val(),
 		"function": "register"
@@ -42,7 +42,7 @@ function RegisterAccount(){
 
 function LogIn(){
 	//alert("logged in.");
-	var data = { 
+	var data = {
 		"username": $("input[name=username]").val(),
 		"password": $("input[name=password]").val(),
 		"function": "login"
@@ -87,11 +87,20 @@ function checkStatus(){
 			if(data==1){
 				//user is logged in so button should be log out
 				var elem = document.getElementById('signIn');
-    			elem.parentNode.removeChild(elem);
-			}else{
+        if (elem)
+        {
+    			elem.innerHTML = "sign out";
+          elem.onClick = 'logout()';
+        }
+			}
+      else{
 				//user is not logged in so button should be log in
-				var elem = document.getElementById('signOut');
-    			elem.parentNode.removeChild(elem);
+				var elem = document.getElementById('signIn');
+        if (elem)
+        {
+          elem.innerHTML = "sign in";
+          elem.onClick = "location.href = 'signIn.html';"
+        }
 			}
 		}
 	});
@@ -100,7 +109,7 @@ function checkStatus(){
 	//ADDTOFAVORITES has been moved to a jquery click handler at the botton
 
 	// infoModal
-	
+
 /*function infoModal(){
 
 	//var span = $(this).find('span');
@@ -312,6 +321,7 @@ function loadMyMuseum(){
 		dataType: "json",
 		success: function (response) {
 
+      console.log(response);
 			//TODO: SAVE THE RETURN DATA TO USE LATER
 			if(response["error"]){
 
@@ -376,7 +386,7 @@ function loadMyMuseum(){
 
 						var infoDivs = document.getElementsByClassName("info-div");
 						infoDivs[i].innerHTML = moreInfoString;
-						
+
 						/*
 						var title = String(minArtwork.title);
 						var date = String(minArtwork.date);
@@ -430,16 +440,16 @@ $(document).ready(function(){
 	});
 
 	// info Modal
-	
+
 	$(".museum-art").click(function(){
 
 		console.log('clicked');
 
 		var name = $(this).children('span').attr('id');
-	
+
 		var popup = document.getElementById(name);
 		popup.classList.toggle("show");
-		
+
 	});
 
 });
@@ -472,7 +482,7 @@ function fetchArtistByArtId(artId){
 					currentArt["author"] = artist;
 				}
 			});
-		
+
 		}
 	);
 }

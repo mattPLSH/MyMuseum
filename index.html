@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <title>My Museum</title>
-       
+
         <!--jQuery-->
         <script
 			  src="https://code.jquery.com/jquery-3.3.1.js"
@@ -13,7 +13,7 @@
         <!--Boostrap JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        
+
         <!--Bootstrap and Google Material Icons CSS-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -22,30 +22,30 @@
         <link rel="stylesheet" href="style.css">
         <script src="app.js"></script>
     </head>
-    
+
     <body id="bdy" onload="nextArt()">
        <div class="container">
-	   
+
 	   <img class="swing" id="fa-title" alt="fa-title" height="50%" width="50%" src="find-art.png"><br>
-        
+
         <!--Tabs at the top-->
         <div id="headerTabs" class="row">
-            
+
             <div class="offset-md-4 col-md-4 top-button-wrapper">
                 <button onclick="location.href = 'myMuseum.html';" id="myMuseum">my museum</button>&nbsp
                 <button onclick="location.href = 'signIn.html';" id="signIn">sign in</button>
-                <button onclick="logout()" id="signOut">sign out</button>
+                <!-- <button onclick="logout()" id="signOut">sign out</button> -->
             </div>
-        
+
         </div>
-        
+
         <div class="row">
             <div id="loadingDiv" class="col-12">
                 loading art
             </div>
         </div>
 
-        <!--Image-->    
+        <!--Image-->
         <div id="artContainerRow" class="row">
             <div class="col-12">
                 <div id="currentArt" class="swing" style="background-color: rgba(255, 255, 255,0.5); width: 400px; height: 400px;">
@@ -53,19 +53,19 @@
                 </div>
             </div>
         </div>
-        
+
         <!--Bottom row of buttons-->
         <div id="bottomButtonsWrapper" class="row">
-            
+
                 <div id="bottomButtons" class="offset-md-4 col-md-4 top-button-wrapper">
-                    
+
                     <button onclick="nextArt()" id="nextArtButton">
                                 next art
                             <i class="material-icons">
                                     refresh
                             </i>
                     </button>
-                    
+
                     <!--
                     <button class="zoom" id="favoriteArtButton" onclick="addToFavorites()">
                         <i id="fab" class="material-icons heart">
@@ -78,23 +78,23 @@
                             favorite_border
                     </i>
 					</span>
-                    
+
                     <button id="moreInfoButton" onclick="moreInfo()">more info</button>
                 </div>
-                    
+
         </div>
-        
+
         <!--Hidden div for more info (to populate with AJAX calls?)-->
         <div id="hiddenInfoDivContainer" class="row">
             <div id="hiddenInfoDiv" class="offset-md-4 col-md-4">
-                
+
             </div>
-        </div>  
-        
+        </div>
+
        </div>
-       
+
 		<a id="curatorMuseumLink" href="curatorMuseum.html">
-			<img class="zoom" alt="cm-bubble" height="14%" width="7%" src="cm-bubble.png">	   
+			<img class="zoom" alt="cm-bubble" height="14%" width="7%" src="cm-bubble.png">
         </a>
     </body>
 </html>
