@@ -143,7 +143,7 @@ function saveFavorite(){
 			"artid": currentArt["id"],
 			"imgurl": currentArt["source"],
 			"title": currentArt["title"],
-			"author": currentArt["author"],
+			//"author": currentArt["author"],
 			"date": currentArt["date"],
 			"medium": currentArt["medium"],
 			"function": "add"
@@ -228,7 +228,7 @@ function nextArt(){
 					source: artwork["_links"]["image"]["href"]
 				};
 
-				fetchArtistByArtId(minArtwork["id"]);
+				//fetchArtistByArtId(minArtwork["id"]);
 
 				//console.log(artwork);
 
