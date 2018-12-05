@@ -4,13 +4,17 @@ var infoCount = 1;
 
 var currentArt;
 
+//this function will determine if someone is logged in and hides either
+//log in or log out respectivly
+checkStatus();
+
 var clientID = 'bdbd863e19b5f2bd35ca',
     clientSecret = '17a710c7d5f4b5e8a566e943e14db4d0',
     apiUrl = 'https://api.artsy.net/api/tokens/xapp_token',
 	token;
 
 function RegisterAccount(){
-	var data = { 
+	var data = {
 		"username": $("input[name=username]").val(),
 		"password": $("input[name=password]").val(),
 		"function": "register"
@@ -38,7 +42,7 @@ function RegisterAccount(){
 
 function LogIn(){
 	//alert("logged in.");
-	var data = { 
+	var data = {
 		"username": $("input[name=username]").val(),
 		"password": $("input[name=password]").val(),
 		"function": "login"
@@ -75,10 +79,37 @@ function logout(){
 	});
 }
 
+function checkStatus(){
+	$.ajax({
+		type: "GET",
+		url: "checkLoggedIn.php",
+		success: function(data){
+			if(data==1){
+				//user is logged in so button should be log out
+				var elem = document.getElementById('signIn');
+        if (elem)
+        {
+    			elem.innerHTML = "sign out";
+          elem.onClick = 'logout()';
+        }
+			}
+      else{
+				//user is not logged in so button should be log in
+				var elem = document.getElementById('signIn');
+        if (elem)
+        {
+          elem.innerHTML = "sign in";
+          elem.onClick = "location.href = 'signIn.html';"
+        }
+			}
+		}
+	});
+}
+
 	//ADDTOFAVORITES has been moved to a jquery click handler at the botton
 
 	// infoModal
-	
+
 /*function infoModal(){
 
 	//var span = $(this).find('span');
@@ -290,6 +321,7 @@ function loadMyMuseum(){
 		dataType: "json",
 		success: function (response) {
 
+      console.log(response);
 			//TODO: SAVE THE RETURN DATA TO USE LATER
 			if(response["error"]){
 
@@ -354,7 +386,7 @@ function loadMyMuseum(){
 
 						var infoDivs = document.getElementsByClassName("info-div");
 						infoDivs[i].innerHTML = moreInfoString;
-						
+
 						/*
 						var title = String(minArtwork.title);
 						var date = String(minArtwork.date);
@@ -408,16 +440,16 @@ $(document).ready(function(){
 	});
 
 	// info Modal
-	
+
 	$(".museum-art").click(function(){
 
 		console.log('clicked');
 
 		var name = $(this).children('span').attr('id');
-	
+
 		var popup = document.getElementById(name);
 		popup.classList.toggle("show");
-		
+
 	});
 
 });
@@ -450,7 +482,7 @@ function fetchArtistByArtId(artId){
 					currentArt["author"] = artist;
 				}
 			});
-		
+
 		}
 	);
 }
