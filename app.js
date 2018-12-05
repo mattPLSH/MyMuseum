@@ -13,6 +13,8 @@ var clientID = 'bdbd863e19b5f2bd35ca',
     apiUrl = 'https://api.artsy.net/api/tokens/xapp_token',
 	token;
 
+var curUserType = -1;
+	
 function RegisterAccount(){
 	var data = {
 		"username": $("input[name=username]").val(),
@@ -31,6 +33,8 @@ function RegisterAccount(){
 				$("#errortxt").html(response["message"])
 			}
 			else if(response["success"]){
+				
+				sessionStorage.setItem("usertype", response["usertype"]); 			
 				window.location = "index.html";
 			}
 		},
@@ -54,11 +58,15 @@ function LogIn(){
 		data: data,
 		dataType: "json",
 		success: function (response) {
+			
+			
 			$("#errortxt").html("");
 			if(response["error"] && response["message"]){
 				$("#errortxt").html(response["message"])
 			}
 			else{
+				
+				sessionStorage.setItem("usertype", response["usertype"]); 
 				window.location = "index.html";
 			}
 		},
@@ -74,6 +82,7 @@ function logout(){
 		url: "logout.php",
 		dataType: "json",
 		success: function (response) {
+			curUserType = -1;
 			window.location = "index.html"
 		}
 	});
@@ -330,7 +339,61 @@ function loadCuratorMuseum(){
 		url: "GetCuratorMuseum.php",
 		dataType: "json",
 		success: function (response) {
+			
+			artArray = response.reverse(); // reverse so most recently saved art is first
+			console.log(response);
+			var artContainer = document.getElementById('artContainerRow');
+			artContainer.innerHTML = "";
+			for(var i = 0; i < response.length; i++)
+			{
+	  
+			  var minArtwork = {
+				title: artArray[i]["title"],
+				date: artArray[i]["date"],
+				id: artArray[i]["artid"],
+				medium: artArray[i]["medium"],
+				source: artArray[i]["imgurl"]
+			  };
 
+			  
+			  artContainer.innerHTML +=   "<div class=\"col-xl-3\">'" +
+						"<div  id=\"zoom\" class=\"museum-art\">" +
+								"<span id=\"a" + i + "\" class=\"info-div\"></span>" +
+						"</div>" +
+				"</div>";
+	  
+	  
+	  
+			  var divs = document.getElementsByClassName("museum-art");
+			  divs[i].style.backgroundImage =  "url('" + minArtwork.source + "')";
+	  
+			  var moreInfoString = "Title: " + String(minArtwork.title) + "<br> Date: " + String(minArtwork.date) +
+			  "<br> Medium: " + String(minArtwork.medium);
+	  
+			  var infoDivs = document.getElementsByClassName("info-div");
+			  infoDivs[i].innerHTML = moreInfoString;
+			  
+	
+			  //only display remove if admin	
+			  if(sessionStorage.getItem("usertype") == "0"){
+				infoDivs[i].innerHTML +="<br /> <button onclick=\"removeFavoriteMus(\'"+ minArtwork.id + "\')\">remove</button>";
+	  
+			  }
+			
+			}
+	  
+			//remove loading text
+			if (response.length != 0)
+			{
+			  document.getElementById('loadingDiv').style.opacity = '0';
+			}
+	  
+			else
+			{
+			  document.getElementById('loadingDiv').innerHTML = "the curator didn't curate any art :(";
+			  document.getElementById('loadingDiv').style.color = "#D5A3DE";
+			  document.getElementById('loadingDiv').style.opacity = '1';
+			}
 			//TODO: SAVE THE RETURN DATA TO USE LATER
 			if(response["error"]){
 
