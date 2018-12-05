@@ -141,6 +141,36 @@ function moreInfo()
 
 }
 
+// museum version of removeFavorite
+function removeFavoriteMus(artid){
+  console.log("remove " +  artid);
+	var data = {
+		"artid": artid,
+		"function": "remove"
+	}
+
+	$.ajax({
+		type: "POST",
+		url: "saveFavorite.php",
+		data: data,
+		dataType: "json",
+		success: function (response) {
+			if(response["error"]){
+				return false;
+			}
+			else{
+				return true;
+			}
+		},
+		error: function(error){
+			console.log(error);
+			return false;
+		}
+	})
+  loadMyMuseum();
+	return true;
+}
+
 function removeFavorite(){
 	var data = {
 		"artid": currentArt["id"],
@@ -324,6 +354,7 @@ function loadMyMuseum(){
       artArray = response;
       console.log(response);
       var artContainer = document.getElementById('artContainerRow');
+      artContainer.innerHTML = "";
       for(var i = 0; i < response.length; i++)
       {
 
@@ -350,6 +381,8 @@ function loadMyMuseum(){
                   "</div>" +
           "</div>";
 
+
+
         var divs = document.getElementsByClassName("museum-art");
         divs[i].style.backgroundImage =  "url('" + minArtwork.source + "')";
 
@@ -358,6 +391,8 @@ function loadMyMuseum(){
 
         var infoDivs = document.getElementsByClassName("info-div");
         infoDivs[i].innerHTML = moreInfoString;
+        infoDivs[i].innerHTML +="<br /> <button onclick=\"removeFavoriteMus(\'"+ minArtwork.id + "\')\">remove</button>";
+
 
         /*
         var title = String(minArtwork.title);
@@ -372,13 +407,13 @@ function loadMyMuseum(){
       {
         document.getElementById('loadingDiv').style.opacity = '0';
       }
+
       else
       {
-        document.getElementById('loadingDiv').innerHTML = "looks like you haven't favorited any art!! favorite some art in the find art tab and then come back!!!";
+        document.getElementById('loadingDiv').innerHTML = "looks like you don't have any favorited art!! favorite some art in the find art tab and then come back!!!";
         document.getElementById('loadingDiv').style.color = "#D5A3DE";
+        document.getElementById('loadingDiv').style.opacity = '1';
       }
-
-      console.log(artContainer.innerHTML);
 
 
 			//TODO: SAVE THE RETURN DATA TO USE LATER
