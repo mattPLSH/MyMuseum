@@ -68,6 +68,7 @@ Current Art Row
     margin:0 auto;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 90%;
 }
 
 #artContainerRow{

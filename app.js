@@ -395,9 +395,9 @@ function loadCuratorMuseum(){
 
 			else
 			{
-			  document.getElementById('loadingDiv').innerHTML = "the curator didn't curate any art :(";
-			  document.getElementById('loadingDiv').style.color = "#D5A3DE";
-			  document.getElementById('loadingDiv').style.opacity = '1';
+			  document.getElementById('loadingDiv').innerHTML = "The curator museum is empty right now. Check back soon for a new exhibit.";
+			  document.getElementById('loadingDiv').style.color = "black";
+			  document.getElementById('loadingDiv').style.opacity = '.4';
 			}
 			//TODO: SAVE THE RETURN DATA TO USE LATER
 			if(response["error"]){
@@ -478,9 +478,9 @@ function loadMyMuseum(){
 
       else
       {
-        document.getElementById('loadingDiv').innerHTML = "looks like you don't have any favorited art!! favorite some art in the find art tab and then come back!!!";
-        document.getElementById('loadingDiv').style.color = "#D5A3DE";
-        document.getElementById('loadingDiv').style.opacity = '1';
+        document.getElementById('loadingDiv').innerHTML = "Whoops! Looks like you have no favorited art. Favorite some art in the Find Art tab and then check back!";
+        document.getElementById('loadingDiv').style.color = "black";
+        document.getElementById('loadingDiv').style.opacity = '.4';
       }
 
 
