@@ -29,6 +29,8 @@
     */
     .top-button-wrapper{
         text-align: center;
+        
+        font-size: 200%;
     }
     #headerTabs{
     margin-bottom:30px;
@@ -144,6 +146,7 @@
         padding:5px 20px 5px 20px;
         border-radius: 20px;
         border-style:none;
+        margin-top: 10%;
     }
 
     button:active {

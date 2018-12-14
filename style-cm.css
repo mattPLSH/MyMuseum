@@ -13,7 +13,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
+        width: 100%;
     }
 
     .info-div {
@@ -29,6 +29,7 @@
     */
     .top-button-wrapper{
         text-align: center;
+        font-size: 170%;
     }
     #headerTabs{
     margin-bottom:30px;
@@ -55,7 +56,7 @@
 
     /* container */
     .museum-art {
-        position: fixed;
+        position: relative;
         display: inline-block;
         cursor: pointer;
         -webkit-user-select: none;
@@ -116,13 +117,14 @@
 
 
     .museum-art{
-        background-size: 175px;
+        margin-left: 10%;
+        background-size: 250px;
         background-repeat: no-repeat;
         background-position: center;
         background-color: rgba(255, 255, 255,0.5); 
-        width: 275px; 
-        height: 275px;
-      
+        width: 80%; 
+        height: 400px;
+        margin-bottom: 20px;
     }
 
     #artContainerRow{
@@ -139,9 +141,10 @@
     button{
         color: #F8E3E8;
         background-color: rgba(228, 154, 171);
-        padding:5px 20px 5px 20px;
+        padding:5px 30px 5px 30px;
         border-radius: 20px;
         border-style:none;
+        margin-top: 10%;
     }
 
     button:active {
@@ -319,6 +322,7 @@
     */
     .top-button-wrapper{
         text-align: center;
+        
     }
     #headerTabs{
     margin-bottom:30px;
