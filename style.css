@@ -1,3 +1,11 @@
+/*some mobile fixes*/
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+
 body {
     padding: 3%;
     padding-top:0;
@@ -52,9 +60,6 @@ Top Buttons
 Bottom Buttons
 */
 
-#bb-container {
-    overflow: auto;
-}
 
 #nextArtButtonWrapper{
     text-align: center;
@@ -79,7 +84,7 @@ Current Art Row
     margin:0 auto;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 90%;
+    background-size: 200px;
 }
 
 #artContainerRow{
