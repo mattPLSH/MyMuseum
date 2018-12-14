@@ -22,7 +22,11 @@ Top Buttons
 }
 #headerTabs{
    margin-bottom:20px;
+   margin-left: auto;
+   margin-right: auto;
 }
+
+/* png titles */
 
 #fa-title {
 	display: block;
@@ -47,8 +51,14 @@ Top Buttons
 /*
 Bottom Buttons
 */
+
+#bb-container {
+    overflow: auto;
+}
+
 #nextArtButtonWrapper{
     text-align: center;
+
 }
 #favoriteArtButton{
     background-color:inherit;
@@ -58,6 +68,7 @@ Bottom Buttons
 }
 #moreInfoButtonWrapper{
     text-align: center;
+  
 }
 
 
