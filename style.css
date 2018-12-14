@@ -84,8 +84,8 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: 90%;
-        width: 60%; 
-        height: 400px;
+        width: 90%; 
+        height: 500px;
     }
 
     #artContainerRow{
@@ -132,17 +132,19 @@
     /*museum bubble*/
 
     #curatorMuseumLink > img{
+
+        display: none;
+        /*
         position: fixed;
-        bottom:20px;
-        right:20px;
-        color:white;
         
+        bottom:20px;
+        right: 37%;
+        color:white;
+        height: 10%;
+        */
     }
 
     
-    #bubble {
-        height: 10%;
-    }
 
     /*
     Animations
