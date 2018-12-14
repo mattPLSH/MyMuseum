@@ -1,282 +1,581 @@
-body {
-    padding: 3%;
-    padding-top:0;
-    background-color: #e5eafd;
-    color: white;
-}
+/*small screen -----------------------------------------------------------------------------------*/
 
+@media only screen and (min-width: 375px) {
 
-  #mm-title {
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-
-  .info-div {
-    padding: 5px;
-    color:black;
-	font-family: 'Nunito', sans-serif;
-    font-size: 10pt;
-}
-
-/*
-Top Buttons
-*/
-.top-button-wrapper{
-    text-align: center;
-}
-#headerTabs{
-   margin-bottom:30px;
-}
-
-
-
-
-/*
-Bottom Buttons
-*/
-#nextArtButtonWrapper{
-    text-align: center;
-}
-#favoriteArtButton{
-    background-color:inherit;
-    padding:inherit;
-    border:none;
-    font-size: 24pt;
-}
-#moreInfoButtonWrapper{
-    text-align: center;
-}
-
-/* Pop-up */
-
-/* container */
-.museum-art {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* The actual popup */
-.museum-art .info-div {
-    visibility: hidden;
-    width: 275px;
-    background-color: rgba(66, 88, 173, 0.5);
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 105%; /*position*/
-    left: 50%;
-    margin-left: -136px;
-}
-
-/* arrow */
-.museum-art .info-div::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(164,182,251,.5) transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-.museum-art .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-}
-
-/*
-Current Art Row
-*/
-.museum-art{
-    background-size: 175px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgba(255, 255, 255,0.5); 
-    width: 275px; 
-    height: 275px;
-}
-
-#artContainerRow{
-    margin-bottom: 30px;
-}
-
-.material-icons{
-    vertical-align: bottom;
-}
-
-/*
-General Button Things
-*/
-button{
-	color: #F2F4FD;
-    background-color: rgba(163, 181, 253);
-    padding:5px 20px 5px 20px;
-    border-radius: 20px;
-    border-style:none;
-}
-
-button:active {
-outline: none;
-border: none;
-}
-
-button:focus {outline:0;}
-
-
-button:hover{
-    background-color: rgba(163, 181, 253, 0.5);
-    cursor: pointer;
-}
-
-#curatorMuseumLink > img{
-    position: fixed;
-    bottom:20px;
-    right:20px;
-    color:white;
-
-}
-
-/*
-Animations
-*/
-
-#zoom {
-    transition: transform .2s;
-}
-
-#zoom:hover {
-    -ms-transform: scale(1.03); /* IE 9 */
-    -webkit-transform: scale(1.03); /* Safari 3-8 */
-    transform: scale(1.03);
-}
-
-.rotate:hover {
-	box-shadow:
-                1px 1px black,
-                2px 2px black,
-                3px 3px black;
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-}
-
-@-webkit-keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
+    body {
+        padding: 3%;
+        padding-top:0;
+        background-color: #e5eafd;
+        color: white;
     }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-       transform: translateX(-5px);
+
+
+    #mm-title {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
     }
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
+
+    .info-div {
+        padding: 5px;
+        color:black;
+        font-family: 'Nunito', sans-serif;
+        font-size: 10pt;
     }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
+
+    /*
+    Top Buttons
+    */
+    .top-button-wrapper{
+        text-align: center;
     }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
+    #headerTabs{
+    margin-bottom:30px;
     }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
+
+
+
+
+    /*
+    Bottom Buttons
+    */
+    #nextArtButtonWrapper{
+        text-align: center;
     }
-}
-@keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
+    #favoriteArtButton{
+        background-color:inherit;
+        padding:inherit;
+        border:none;
+        font-size: 24pt;
     }
-    30%
+    #moreInfoButtonWrapper{
+        text-align: center;
+    }
+
+    /* Pop-up */
+
+    /* container */
+    .museum-art {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* The actual popup */
+    .museum-art .info-div {
+        visibility: hidden;
+        width: 100%;
+        background-color: rgba(66, 88, 173, 0.5);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 100%; /*position*/
+        left: 25%;
+        margin-left: -136px;
+        font-size: 130%;
+    }
+
+    /* arrow */
+    .museum-art .info-div::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: rgba(66, 88, 173, 0.5) transparent transparent transparent;
+    }
+
+    /* Toggle this class - hide and show the popup */
+    .museum-art .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+    }
+
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+        from {opacity: 0;} 
+        to {opacity: 1;}
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+    }
+
+    /*
+    Current Art Row
+    */
+    .museum-art{
+        margin-left: 10%;
+        background-size: 250px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgba(255, 255, 255,0.5); 
+        width: 80%; 
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    #artContainerRow{
+        margin-bottom: 30px;
+    }
+
+    .material-icons{
+        vertical-align: bottom;
+    }
+
+    /*
+    General Button Things
+    */
+    button{
+        color: #F2F4FD;
+        background-color: rgba(163, 181, 253);
+        padding:5px 20px 5px 20px;
+        border-radius: 20px;
+        border-style:none;
+    }
+
+    button:active {
+    outline: none;
+    border: none;
+    }
+
+    button:focus {outline:0;}
+
+
+    button:hover{
+        background-color: rgba(163, 181, 253, 0.5);
+        cursor: pointer;
+    }
+
+    #curatorMuseumLink > img{
+        position: fixed;
+        bottom:20px;
+        right:20px;
+        height: 7%;
+        color:white;
+
+    }
+
+    /*
+    Animations
+    */
+
+    #zoom {
+        transition: transform .2s;
+    }
+
+    #zoom:hover {
+        -ms-transform: scale(1.03); /* IE 9 */
+        -webkit-transform: scale(1.03); /* Safari 3-8 */
+        transform: scale(1.03);
+    }
+
+    .rotate:hover {
+        box-shadow:
+                    1px 1px black,
+                    2px 2px black,
+                    3px 3px black;
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+    }
+
+    @-webkit-keyframes swing
     {
-        -webkit-transform: translateX(-5px);
+        15%
+        {
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        30%
+        {
+            -webkit-transform: translateX(-5px);
         transform: translateX(-5px);
+        }
+        50%
+        {
+            -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+        }
+        65%
+        {
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+        }
+        80%
+        {
+            -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+        }
+        100%
+        {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
     }
-    50%
+    @keyframes swing
     {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
+        15%
+        {
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        30%
+        {
+            -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+        }
+        50%
+        {
+            -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+        }
+        65%
+        {
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+        }
+        80%
+        {
+            -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+        }
+        100%
+        {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
     }
-    65%
+
+    .swing:hover {
+
+            -webkit-animation: swing 1s ease;
+            animation: swing 1s ease;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+
+    }
+
+    #bdy, #currentArt {
+        -webkit-transition: background-color 2s ease-out;
+        -moz-transition: background-color 2s ease-out;
+        -o-transition: background-color 2s ease-out;
+        transition: background-color 2s ease-out;
+    }
+
+    #hiddenInfoDiv {
+        text-align: center;
+        opacity: 0;
+        transition:1s;
+    }
+
+
+    #curatorMuseumLink:hover{
+        color:gray;
+    }
+
+    #hiddenInfoDivContainer{
+        margin-top:30px;
+    }
+
+}
+
+/*large screen -----------------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 1200px) {
+
+    body {
+        padding: 3%;
+        padding-top:0;
+        background-color: #e5eafd;
+        color: white;
+    }
+
+
+    #mm-title {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .info-div {
+        padding: 5px;
+        color:black;
+        font-family: 'Nunito', sans-serif;
+        font-size: 10pt;
+    }
+
+    /*
+    Top Buttons
+    */
+    .top-button-wrapper{
+        text-align: center;
+    }
+    #headerTabs{
+    margin-bottom:30px;
+    }
+
+
+
+
+    /*
+    Bottom Buttons
+    */
+    #nextArtButtonWrapper{
+        text-align: center;
+    }
+    #favoriteArtButton{
+        background-color:inherit;
+        padding:inherit;
+        border:none;
+        font-size: 24pt;
+    }
+    #moreInfoButtonWrapper{
+        text-align: center;
+    }
+
+    /* Pop-up */
+
+    /* container */
+    .museum-art {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* The actual popup */
+    .museum-art .info-div {
+        visibility: hidden;
+        width: 275px;
+        background-color: rgba(66, 88, 173, 0.5);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 105%; /*position*/
+        left: 50%;
+        margin-left: -136px;
+    }
+
+    /* arrow */
+    .museum-art .info-div::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: rgba(66, 88, 173, 0.5) transparent transparent transparent;
+    }
+
+    /* Toggle this class - hide and show the popup */
+    .museum-art .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+    }
+
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+        from {opacity: 0;} 
+        to {opacity: 1;}
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+    }
+
+    /*
+    Current Art Row
+    */
+    .museum-art{
+        background-size: 175px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgba(255, 255, 255,0.5); 
+        width: 275px; 
+        height: 275px;
+    }
+
+    #artContainerRow{
+        margin-bottom: 30px;
+    }
+
+    .material-icons{
+        vertical-align: bottom;
+    }
+
+    /*
+    General Button Things
+    */
+    button{
+        color: #F2F4FD;
+        background-color: rgba(163, 181, 253);
+        padding:5px 20px 5px 20px;
+        border-radius: 20px;
+        border-style:none;
+    }
+
+    button:active {
+    outline: none;
+    border: none;
+    }
+
+    button:focus {outline:0;}
+
+
+    button:hover{
+        background-color: rgba(163, 181, 253, 0.5);
+        cursor: pointer;
+    }
+
+    #curatorMuseumLink > img{
+        position: fixed;
+        bottom:20px;
+        right:20px;
+        color:white;
+
+    }
+
+    /*
+    Animations
+    */
+
+    #zoom {
+        transition: transform .2s;
+    }
+
+    #zoom:hover {
+        -ms-transform: scale(1.03); /* IE 9 */
+        -webkit-transform: scale(1.03); /* Safari 3-8 */
+        transform: scale(1.03);
+    }
+
+    .rotate:hover {
+        box-shadow:
+                    1px 1px black,
+                    2px 2px black,
+                    3px 3px black;
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+    }
+
+    @-webkit-keyframes swing
     {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
+        15%
+        {
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        30%
+        {
+            -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+        }
+        50%
+        {
+            -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+        }
+        65%
+        {
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+        }
+        80%
+        {
+            -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+        }
+        100%
+        {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
     }
-    80%
+    @keyframes swing
     {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
+        15%
+        {
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        30%
+        {
+            -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+        }
+        50%
+        {
+            -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+        }
+        65%
+        {
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+        }
+        80%
+        {
+            -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+        }
+        100%
+        {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
     }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
+
+    .swing:hover {
+
+            -webkit-animation: swing 1s ease;
+            animation: swing 1s ease;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+
     }
-}
 
-.swing:hover {
+    #bdy, #currentArt {
+        -webkit-transition: background-color 2s ease-out;
+        -moz-transition: background-color 2s ease-out;
+        -o-transition: background-color 2s ease-out;
+        transition: background-color 2s ease-out;
+    }
 
-	    -webkit-animation: swing 1s ease;
-        animation: swing 1s ease;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
-
-}
-
-#bdy, #currentArt {
-	-webkit-transition: background-color 2s ease-out;
-	-moz-transition: background-color 2s ease-out;
-	-o-transition: background-color 2s ease-out;
-	transition: background-color 2s ease-out;
-}
-
-#hiddenInfoDiv {
-	text-align: center;
-	opacity: 0;
-	transition:1s;
-}
+    #hiddenInfoDiv {
+        text-align: center;
+        opacity: 0;
+        transition:1s;
+    }
 
 
-#curatorMuseumLink:hover{
-    color:gray;
-}
+    #curatorMuseumLink:hover{
+        color:gray;
+    }
 
-#hiddenInfoDivContainer{
-    margin-top:30px;
+    #hiddenInfoDivContainer{
+        margin-top:30px;
+    }
+
 }
