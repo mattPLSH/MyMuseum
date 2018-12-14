@@ -1,323 +1,658 @@
-/*some mobile fixes*/
 
-@media only screen and (max-width: 600px) {
+
+/*small screen -----------------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 375px) {
+   
+
     body {
-      background-color: lightblue;
+        padding: 3%;
+        padding-top:0;
+        background-color: #a1d3daff;
+        color: white; 
     }
-  }
 
-body {
-    padding: 3%;
-    padding-top:0;
-    background-color: #a1d3daff;
-    color: white; 
-}
+    #errortxt {
+        color: red;
+        padding: 1em;
+    }
 
-#errortxt {
-    color: red;
-    padding: 1em;
-}
+    #loadingDiv {
+        padding: 5px;
+    }
 
-#loadingDiv {
-	padding: 5px;
-}
-
-/*
-Top Buttons
-*/
-.top-button-wrapper{
-    text-align: center;
-}
-#headerTabs{
-   margin-bottom:20px;
-   margin-left: auto;
-   margin-right: auto;
-}
-
-/* png titles */
-
-#fa-title {
-	display: block;
+    /*
+    Top Buttons
+    */
+    .top-button-wrapper{
+        text-align: center;
+    }
+    #headerTabs{
+    margin-bottom:20px;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-  }
-  
-#si-title {
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+    }
 
-#loadingDiv
-{
-    text-align: center;
-    opacity: 0;
-}
+    /* png titles */
 
-/*
-Bottom Buttons
-*/
-
-
-#nextArtButtonWrapper{
-    text-align: center;
-
-}
-#favoriteArtButton{
-    background-color:inherit;
-    padding:inherit;
-    border:none;
-    font-size: 24pt;
-}
-#moreInfoButtonWrapper{
-    text-align: center;
-  
-}
-
-
-/*
-Current Art Row
-*/
-#currentArt{
-    margin:0 auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 200px;
-}
-
-#artContainerRow{
-    margin-bottom: 15px;
-}
-
-.material-icons{
-    vertical-align: middle;
-}
-
-/*
-General Button Things
-*/
-button{
-    background-color: rgba(255, 255, 255,0.5);
-    padding:5px 20px 5px 20px;
-    border-radius: 20px;
-    border-style:none;
-}
-
-button:active {
-outline: none;
-border: none;
-}
-
-button:focus {outline:0;}
-
-#signInFormContainer{
-    text-align: center;
-}
-
-.sign-in-text-field{
-    background-color: rgba(255, 255, 255,0.5);
-    padding:5px 10px;
-    border-radius: 20px;
-    border-style:none;
-}
-
-button:hover{
-    background-color: rgba(255, 255, 255, 0.25);
-    cursor: pointer;
-}
-
-#curatorMuseumLink > img{
-    position: fixed;
-    bottom:20px;
-    right:20px;
-    color:white;
+    #fa-title {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
     
-}
+    #si-title {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
 
-/*
-Animations
-*/
+    #loadingDiv
+    {
+        text-align: center;
+        opacity: 0;
+    }
 
-.zoom {
-    transition: transform .2s;
-}
+    /*
+    Bottom Buttons
+    */
 
-.zoom:hover {
-    -ms-transform: scale(1.05); /* IE 9 */
-    -webkit-transform: scale(1.05); /* Safari 3-8 */
-    transform: scale(1.05); 
-}
 
-.rotate:hover {
-	box-shadow:
-                1px 1px #black,
-                2px 2px #black,
-                3px 3px #black;
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-}
+    #nextArtButtonWrapper{
+        text-align: center;
 
-@-webkit-keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
     }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-       transform: translateX(-5px);
-    } 
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
+    #favoriteArtButton{
+        background-color:inherit;
+        padding:inherit;
+        border:none;
+        font-size: 24pt;
     }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
+    #moreInfoButtonWrapper{
+        text-align: center;
+    
     }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
+
+
+    /*
+    Current Art Row
+    */
+    #currentArt{
+        margin:0 auto;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 90%;
+        width: 60%; 
+        height: 400px;
     }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
+
+    #artContainerRow{
+        margin-bottom: 15px;
     }
-}
-@keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
+
+    .material-icons{
+        vertical-align: middle;
     }
-    30%
+
+    /*
+    General Button Things
+    */
+    button{
+        background-color: rgba(255, 255, 255,0.5);
+        padding:5px 20px 5px 20px;
+        border-radius: 20px;
+        border-style:none;
+    }
+
+    button:active {
+    outline: none;
+    border: none;
+    }
+
+    button:focus {outline:0;}
+
+    #signInFormContainer{
+        text-align: center;
+    }
+
+    .sign-in-text-field{
+        background-color: rgba(255, 255, 255,0.5);
+        padding:5px 10px;
+        border-radius: 20px;
+        border-style:none;
+    }
+
+    button:hover{
+        background-color: rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+    }
+
+    /*museum bubble*/
+
+    #curatorMuseumLink > img{
+        position: fixed;
+        bottom:20px;
+        right:20px;
+        color:white;
+        
+    }
+
+    
+    #bubble {
+        height: 10%;
+    }
+
+    /*
+    Animations
+    */
+
+    .zoom {
+        transition: transform .2s;
+    }
+
+    .zoom:hover {
+        -ms-transform: scale(1.05); /* IE 9 */
+        -webkit-transform: scale(1.05); /* Safari 3-8 */
+        transform: scale(1.05); 
+    }
+
+    .rotate:hover {
+        box-shadow:
+                    1px 1px #black,
+                    2px 2px #black,
+                    3px 3px #black;
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+    }
+
+    @-webkit-keyframes swing
     {
-        -webkit-transform: translateX(-5px);
+        15%
+        {
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        30%
+        {
+            -webkit-transform: translateX(-5px);
         transform: translateX(-5px);
+        } 
+        50%
+        {
+            -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+        }
+        65%
+        {
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+        }
+        80%
+        {
+            -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+        }
+        100%
+        {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
     }
-    50%
+    @keyframes swing
     {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
+        15%
+        {
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        30%
+        {
+            -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+        }
+        50%
+        {
+            -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+        }
+        65%
+        {
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+        }
+        80%
+        {
+            -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+        }
+        100%
+        {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
     }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
 
-.swing:hover {
-	
-	    -webkit-animation: swing 1s ease;
-        animation: swing 1s ease;
+    .swing:hover {
+        
+            -webkit-animation: swing 1s ease;
+            animation: swing 1s ease;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+        
+    }
+
+    #bdy, #currentArt {
+        -webkit-transition: background-color 2s ease-out;
+        -moz-transition: background-color 2s ease-out;
+        -o-transition: background-color 2s ease-out;
+        transition: background-color 2s ease-out;
+    }
+
+    #hiddenInfoDiv {
+        text-align: center;
+        opacity: 0;
+        transition:1s;
+    }
+
+
+    #curatorMuseumLink:hover{
+        color:gray;
+    }
+
+    #hiddenInfoDivContainer{
+        margin-top:30px;
+    }
+
+    .heart
+    {
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;          /* Likely future */
+        padding: 0px 10px;
+        cursor: pointer;
+        font-size: 1.8em;
+        vertical-align: center;
+    }
+
+    .heartAnimation
+    {
+        -webkit-animation: heart 1s ease;
+        animation: heart 1s ease;
         -webkit-animation-iteration-count: 1;
         animation-iteration-count: 1;
-	
-}
-
-#bdy, #currentArt {
-	-webkit-transition: background-color 2s ease-out;
-	-moz-transition: background-color 2s ease-out;
-	-o-transition: background-color 2s ease-out;
-	transition: background-color 2s ease-out;
-}
-
-#hiddenInfoDiv {
-	text-align: center;
-	opacity: 0;
-	transition:1s;
-}
-
-
-#curatorMuseumLink:hover{
-    color:gray;
-}
-
-#hiddenInfoDivContainer{
-    margin-top:30px;
-}
-
-.heart
-{
-	-webkit-user-select: none;  /* Chrome all / Safari all */
-	-moz-user-select: none;     /* Firefox all */
-	-ms-user-select: none;      /* IE 10+ */
-	user-select: none;          /* Likely future */
-	padding: 0px 10px;
-	cursor: pointer;
-	font-size: 1.8em;
-	vertical-align: center;
-}
-
-.heartAnimation
-{
-	-webkit-animation: heart 1s ease;
-     animation: heart 1s ease;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-}
-
-@-webkit-keyframes heart
-{
-	
-	0%
-    {
-        font-size: 0.1em;
     }
 
-    50%
+    @-webkit-keyframes heart
     {
-        font-size: 2.2em;
+        
+        0%
+        {
+            font-size: 0.1em;
+        }
+
+        50%
+        {
+            font-size: 2.2em;
+        }
+        100%
+        {
+            font-size: 1.8em;
+        }
+        
     }
-	100%
-	{
-		font-size: 1.8em;
-	}
-	
-}
-@keyframes heart
-{
-   	0%
+    @keyframes heart
     {
-        font-size: 0.1em;
+        0%
+        {
+            font-size: 0.1em;
+        }
+        50%
+        {
+            font-size: 2.2em;
+        }
+        100%
+        {
+            font-size: 1.8em;
+        }
     }
-    50%
+
+    .material-icons.heart{ color: rgba(184, 82, 106, 1); }
+
+
+    #heartCont
     {
-        font-size: 2.2em;
+        display:inline-block;
+        width: 55px;
+        line-height: 40px;
     }
-	100%
-	{
-		font-size: 1.8em;
-	}
+
 }
 
-.material-icons.heart{ color: rgba(184, 82, 106, 1); }
+
+/*large screen -----------------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 1200px) {
+   
 
 
-#heartCont
-{
-	display:inline-block;
-	width: 55px;
-	line-height: 40px;
+    body {
+        padding: 3%;
+        padding-top:0;
+        background-color: #a1d3daff;
+        color: white; 
+    }
+
+    #errortxt {
+        color: red;
+        padding: 1em;
+    }
+
+    #loadingDiv {
+        padding: 5px;
+    }
+
+    /*
+    Top Buttons
+    */
+    .top-button-wrapper{
+        text-align: center;
+    }
+    #headerTabs{
+    margin-bottom:20px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    /* png titles */
+
+    #fa-title {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    
+    #si-title {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    #loadingDiv
+    {
+        text-align: center;
+        opacity: 0;
+    }
+
+    /*
+    Bottom Buttons
+    */
+
+
+    #nextArtButtonWrapper{
+        text-align: center;
+
+    }
+    #favoriteArtButton{
+        background-color:inherit;
+        padding:inherit;
+        border:none;
+        font-size: 24pt;
+    }
+    #moreInfoButtonWrapper{
+        text-align: center;
+    
+    }
+
+
+    /*
+    Current Art Row
+    */
+    #currentArt{
+        margin:0 auto;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 200px;
+        width: 400px; 
+        height: 400px;
+    }
+
+    #artContainerRow{
+        margin-bottom: 15px;
+    }
+
+    .material-icons{
+        vertical-align: middle;
+    }
+
+    /*
+    General Button Things
+    */
+    button{
+        background-color: rgba(255, 255, 255,0.5);
+        padding:5px 20px 5px 20px;
+        border-radius: 20px;
+        border-style:none;
+    }
+
+    button:active {
+    outline: none;
+    border: none;
+    }
+
+    button:focus {outline:0;}
+
+    #signInFormContainer{
+        text-align: center;
+    }
+
+    .sign-in-text-field{
+        background-color: rgba(255, 255, 255,0.5);
+        padding:5px 10px;
+        border-radius: 20px;
+        border-style:none;
+    }
+
+    button:hover{
+        background-color: rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+    }
+
+    #curatorMuseumLink > img{
+        position: fixed;
+        bottom:20px;
+        right:20px;
+        color:white;
+        
+    }
+
+    /*
+    Animations
+    */
+
+    .zoom {
+        transition: transform .2s;
+    }
+
+    .zoom:hover {
+        -ms-transform: scale(1.05); /* IE 9 */
+        -webkit-transform: scale(1.05); /* Safari 3-8 */
+        transform: scale(1.05); 
+    }
+
+    .rotate:hover {
+        box-shadow:
+                    1px 1px #black,
+                    2px 2px #black,
+                    3px 3px #black;
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+    }
+
+    @-webkit-keyframes swing
+    {
+        15%
+        {
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        30%
+        {
+            -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+        } 
+        50%
+        {
+            -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+        }
+        65%
+        {
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+        }
+        80%
+        {
+            -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+        }
+        100%
+        {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    @keyframes swing
+    {
+        15%
+        {
+            -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+        }
+        30%
+        {
+            -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+        }
+        50%
+        {
+            -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+        }
+        65%
+        {
+            -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+        }
+        80%
+        {
+            -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+        }
+        100%
+        {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+
+    .swing:hover {
+        
+            -webkit-animation: swing 1s ease;
+            animation: swing 1s ease;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+        
+    }
+
+    #bdy, #currentArt {
+        -webkit-transition: background-color 2s ease-out;
+        -moz-transition: background-color 2s ease-out;
+        -o-transition: background-color 2s ease-out;
+        transition: background-color 2s ease-out;
+    }
+
+    #hiddenInfoDiv {
+        text-align: center;
+        opacity: 0;
+        transition:1s;
+    }
+
+
+    #curatorMuseumLink:hover{
+        color:gray;
+    }
+
+    #hiddenInfoDivContainer{
+        margin-top:30px;
+    }
+
+    .heart
+    {
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;          /* Likely future */
+        padding: 0px 10px;
+        cursor: pointer;
+        font-size: 1.8em;
+        vertical-align: center;
+    }
+
+    .heartAnimation
+    {
+        -webkit-animation: heart 1s ease;
+        animation: heart 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+    }
+
+    @-webkit-keyframes heart
+    {
+        
+        0%
+        {
+            font-size: 0.1em;
+        }
+
+        50%
+        {
+            font-size: 2.2em;
+        }
+        100%
+        {
+            font-size: 1.8em;
+        }
+        
+    }
+    @keyframes heart
+    {
+        0%
+        {
+            font-size: 0.1em;
+        }
+        50%
+        {
+            font-size: 2.2em;
+        }
+        100%
+        {
+            font-size: 1.8em;
+        }
+    }
+
+    .material-icons.heart{ color: rgba(184, 82, 106, 1); }
+
+
+    #heartCont
+    {
+        display:inline-block;
+        width: 55px;
+        line-height: 40px;
+    }
+
 }
-
