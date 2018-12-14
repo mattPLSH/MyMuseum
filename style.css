@@ -133,15 +133,11 @@
 
     #curatorMuseumLink > img{
 
-        display: none;
-        /*
-        position: fixed;
-        
-        bottom:20px;
-        right: 37%;
+        clear: both;
+        margin-top: 10%;
+        margin-left: 38%;
+        height: 100px;
         color:white;
-        height: 10%;
-        */
     }
 
     

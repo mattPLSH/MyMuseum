@@ -160,11 +160,12 @@
     }
 
     #curatorMuseumLink > img{
-        position: fixed;
-        bottom:20px;
-        right:20px;
-        height: 7%;
+        
+        clear: both;
+        margin-left: 40%;
+        height: 200px;
         color:white;
+
 
     }
 
