@@ -2,7 +2,7 @@
 
 /*small screen -----------------------------------------------------------------------------------*/
 
-@media only screen and (min-width: 375px) {
+@media only screen and (min-width: 320px) {
    
 
     body {
@@ -33,6 +33,13 @@
     margin-right: auto;
     }
 
+    #findArt {
+        font-size: 160%;
+        margin-top: 20%;
+        padding:10px 40px 10px 40px;
+        margin-bottom: 100%;
+    }
+
     /* png titles */
 
     #fa-title {
@@ -46,7 +53,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
+        width: 100%;
     }
 
     #loadingDiv
@@ -104,6 +111,7 @@
         padding:5px 20px 5px 20px;
         border-radius: 20px;
         border-style:none;
+        margin-top: 3%;
     }
 
     button:active {
@@ -119,9 +127,29 @@
 
     .sign-in-text-field{
         background-color: rgba(255, 255, 255,0.5);
-        padding:5px 10px;
+        padding: 20px 220px;
         border-radius: 20px;
         border-style:none;
+        font-size: 150%;
+        margin-bottom: 10%;
+        text-align: center;
+    }
+
+   #new-acct {
+       font-size: 180%;
+   }
+
+   #sign-in-btn {
+       margin-left: 5%;
+       font-size: 180%;
+   }
+
+    #user-default {
+        font-size: 200%;
+    }
+
+    #password-default {
+        font-size: 200%;
     }
 
     button:hover{

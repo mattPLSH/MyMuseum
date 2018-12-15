@@ -39,24 +39,21 @@
         <div id="artContainerRow" class="row">
             <div id="signInFormContainer" class="col-12">
                     <form>
-                        username:<br>
+                        <div id=user-default>username:</div><br>
                         <input class="sign-in-text-field" type="text" name="username" value="username">
                         <br>
-                        password:<br>
+                        <div id="password-default">password:</div><br>
                         <input class="sign-in-text-field"type="password" name="password" value="password">
                         <br><br>
                     </form> 
                     <span>
-                        <button onclick="RegisterAccount()" type="submit" value="register">new account</button>
-                        <button onclick="LogIn()" type="submit" value="sign-in">sign in</button>
+                        <button id="new-acct" onclick="RegisterAccount()" type="submit" value="register">new account</button>
+                        <button id="sign-in-btn" onclick="LogIn()" type="submit" value="sign-in">sign in</button>
                     </span>
                 <h5 id="errortxt"></h5>
             </div>
         </div>
         
-		<a id="curatorMuseumLink" href="curatorMuseum.html">
-			<img class="zoom" alt="cm-bubble" height="14%" src="cm-bubble.png">	   
-		</a> 
 		
 	</body>
 </html>
