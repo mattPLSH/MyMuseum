@@ -2,7 +2,7 @@
 
 /*small screen -----------------------------------------------------------------------------------*/
 
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 320px) and (max-width:1199px) {
    
 
     body {
@@ -34,10 +34,10 @@
     }
 
     #findArt {
-        font-size: 160%;
+        font-size: 200%;
         margin-top: 20%;
         padding:10px 40px 10px 40px;
-        margin-bottom: 100%;
+        margin-bottom: 90%;
     }
 
     /* png titles */
@@ -121,27 +121,29 @@
 
     button:focus {outline:0;}
 
+    /* sign in things */
+
     #signInFormContainer{
         text-align: center;
     }
 
     .sign-in-text-field{
         background-color: rgba(255, 255, 255,0.5);
-        padding: 20px 220px;
+        padding: 20px 200px;
         border-radius: 20px;
         border-style:none;
-        font-size: 150%;
+        font-size: 180%;
         margin-bottom: 10%;
         text-align: center;
     }
 
    #new-acct {
-       font-size: 180%;
+       font-size: 200%;
    }
 
    #sign-in-btn {
        margin-left: 5%;
-       font-size: 180%;
+       font-size: 200%;
    }
 
     #user-default {
@@ -345,7 +347,7 @@
         }
     }
 
-    .material-icons.heart{ color: rgba(184, 82, 106, 1); }
+    .material-icons.heart{ color: rgb(56, 10, 21, .5); }
 
 
     #heartCont
@@ -493,7 +495,7 @@
         bottom:20px;
         right:20px;
         color:white;
-        
+        height: 10%;
     }
 
     /*
@@ -671,7 +673,7 @@
         }
     }
 
-    .material-icons.heart{ color: rgba(184, 82, 106, 1); }
+    .material-icons.heart{ color: rgb(56, 10, 21, .5); }
 
 
     #heartCont
